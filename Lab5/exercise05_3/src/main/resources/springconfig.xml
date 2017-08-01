@@ -2,6 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountService" class="cs544.bank.service.AccountService">
+        <constructor-arg index="0" ref="accountDAO"></constructor-arg>
+        <constructor-arg index="1" ref="currencyConverter"></constructor-arg>
+        <constructor-arg index="2" ref="jmsSender"></constructor-arg>
+        <constructor-arg  index="3" ref="logger"></constructor-arg>
+    </bean>
+
     <bean id="logger" class="cs544.bank.logging.Logger"></bean>
     <bean id="currencyConverter" class="cs544.bank.service.CurrencyConverter"></bean>
     <bean id="accountDAO" class="cs544.bank.dao.AccountDAO"></bean>

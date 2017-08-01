@@ -1,18 +1,24 @@
 package cs544.bank;
 
 import java.util.Collection;
-
 import cs544.bank.domain.AccountEntry;
 import cs544.bank.domain.Account;
 import cs544.bank.domain.Customer;
 import cs544.bank.service.AccountService;
 import cs544.bank.service.IAccountService;
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
+
 	public static void main(String[] args) {
-		IAccountService accountService = new AccountService();
-		// create 2 accounts;
+       // IAccountService accountService ;//= new AccountService();
+        @SuppressWarnings("resource")
+        ApplicationContext  context=new ClassPathXmlApplicationContext("springconfig.xml");
+        IAccountService accountService =context.getBean("accountService",IAccountService.class);
+
+
+        // create 2 accounts;
 		accountService.createAccount(1263862, "Frank Brown");
 		accountService.createAccount(4253892, "John Doe");
 		//use account 1;
