@@ -3,9 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
     <bean id="productService" class="cs544.exercise5_1.ProductService">
         <property name="inventoryService" ref="inventoryService1"></property>
+        <!--Here we are injecting inventoryService inside productService class
+        inventoryService: is a name of instance variable in targer class. which need to have setter method i.e setinventoryService()
+        inventoryService1 : is a id of bean we are injecting
+        ref: should give the bean id here
+        -->
     </bean>
     <bean id="inventoryService1" class="cs544.exercise5_1.InventoryService"/>
 </beans>
